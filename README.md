@@ -3,10 +3,10 @@
 </h2>
 
 <p align="center">
-    <img src="https://img.shields.io/github/languages/count/MatheusPrudente/nlw-esports-ignite"/>
-    <img src="https://img.shields.io/github/repo-size/MatheusPrudente/nlw-esports-ignite"/>
-    <img src="https://img.shields.io/github/last-commit/MatheusPrudente/nlw-esports-ignite"/>
-    <img src="https://img.shields.io/github/issues/MatheusPrudente/nlw-esports-ignite"/>
+    <img src="https://img.shields.io/github/languages/count/claudiopjfilho/NLW-E-Sports-Ignite"/>
+    <img src="https://img.shields.io/github/repo-size/claudiopjfilho/NLW-E-Sports-Ignite"/>
+    <img src="https://img.shields.io/github/last-commit/claudiopjfilho/NLW-E-Sports-Ignite"/>
+    <img src="https://img.shields.io/github/issues/claudiopjfilho/NLW-E-Sports-Ignite"/>
 </p> 
 
 ## 	:rocket: Tecnologias 
