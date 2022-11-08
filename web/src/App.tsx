@@ -1,20 +1,29 @@
-import { MagnifyingGlassPlus } from "phosphor-react";
-import { GameBanner } from "./Components/GameBanner";
-
-
+import { useState, useEffect } from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import logoImg from "./assets/Logo-esports-ignite.svg";
+
+import { GameBanner } from "./Components/GameBanner";
 import CreateAdBanner from "./Components/CreateAdBanner";
-import { useState } from "react";
 
-function App() {
-  
-const [hasUserClickedOnButton, setHasUserClickedOnButton] = useState(false)
-
-function handleButtonCLick() {
-  setHasUserClickedOnButton(true)
+interface Game {
+  id: string;
+  title: string;
+  bannerUrl: string;
+  _count: {
+    ads: number;
+  };
 }
 
+function App() {
+  const [games, setGames] = useState<Game[]>([]);
 
+  useEffect(() => {
+    fetch("http://localhost:3333/games")
+      .then(response => response.json())
+      .then(data => {
+        setGames(data);
+      });
+  }, []);
 
   return (
     <div className="xl:max-w-3xl 2xl:max-w-[1344px] mx-auto flex flex-col items-center my-20">
@@ -28,16 +37,31 @@ function handleButtonCLick() {
         está aqui.
       </h1>
 
-<button onClick={handleButtonCLick}>
+      <div className="grid grid-cols-6 gap-6 mt-16">
+        {games.map(game => {
+          return (
+            <GameBanner
+              key={game.id}
+              title={game.title}
+              adsCount={game._count.ads}
+              bannerUrl={game.bannerUrl}
+            />
+          );
+        })}
+      </div>
 
-  Clique Aqui
-</button>
+      <Dialog.Root>
+        <CreateAdBanner />
 
-{hasUserClickedOnButton ? 'Usuario clicou' : null}
+        <Dialog.Portal>
+          <Dialog.Overlay className="bg-black/80 inset-0 fixed" />
+          <Dialog.Content>
+            <Dialog.Title>Publique um anúncio</Dialog.Title>
 
-      <GameBanner adsCount={4} bannerUrl={"../public/image1.png"} title={"LOL"} />
-      <CreateAdBanner/>
-
+            <Dialog.Content>fowlkipwfojkwfpokjfw</Dialog.Content>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </div>
   );
 }

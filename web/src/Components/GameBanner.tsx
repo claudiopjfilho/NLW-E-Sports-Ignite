@@ -10,7 +10,7 @@ interface GameBannerProps {
 
 export  function GameBanner(props: GameBannerProps) {
   return (
-    <div className="grid grid-cols-6 gap-6 mt-16">
+    <div>
         <a href="" className="relative rounded-lg overflow-hidden">
     <img src={props.bannerUrl} alt="" />
     <div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute left-0 bottom-0 right-0">
